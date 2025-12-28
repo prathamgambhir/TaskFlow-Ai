@@ -1,13 +1,47 @@
+"use client";
+
 import HelixImage from "@/assets/images/helix2.png";
 import EmojisterImage from "@/assets/images/emojistar.png";
 import Image from "next/image";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "motion/react";
 
 export default function CallToAction() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const translateYParallax = useTransform(scrollYProgress, [0, 1], [-100, 100]);
   return (
-    <section className="bg-black text-white py-24 md:py-32 lg:py-38 px-6 relative">
-        <Image src={HelixImage} alt="Helix Image" className="absolute lg:right-22 md:right-5 md:size-35 lg:size-60 bottom-8 hidden md:inline" />
-        <Image src={EmojisterImage} alt="Imojister Image" className="absolute lg:left-22 md:left-8 md:size-35 lg:size-60 top-10 hidden md:inline" />
-      <div className="w-3/4 max-w-3xl mx-auto text-center relative z-10">
+    <section className="bg-black text-white w-full py-28 md:py-40 lg:py-44 px-6 overflow-clip">
+      <div
+        className="w-3/4 max-w-3xl h-full mx-auto text-center relative z-1"
+        ref={containerRef}
+      >
+        <motion.div
+          style={{
+            y: translateYParallax
+          }}
+          className="absolute -top-22 left-[calc(-100%+60%)] hidden md:inline"
+        >
+          <Image
+            src={EmojisterImage}
+            alt="Imojister Image"
+          />
+        </motion.div>
+        <motion.div 
+        style={{
+          y: translateYParallax
+        }}
+        className="absolute -bottom-32 right-[calc(-100%+60%)] hidden md:inline z-10"
+        >
+          <Image
+            src={HelixImage}
+            alt="Helix Image"
+          />
+        </motion.div>
         <div className="absolute -z-10 bg-linear-to-b from-black via-purple-700 to-black blur-[100px] w-full h-full"></div>
         <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-8">
           Get instant access

@@ -5,7 +5,7 @@ import { HeartIcon } from "@heroicons/react/20/solid";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 border-t border-zinc-800">
+    <footer className="bg-black text-white py-12 border-t mt-28 border-zinc-800">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
           <p className="text-gray-400 text-sm mb-2">
@@ -37,7 +37,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://github.com/prathamgambhir/"
+            href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"

@@ -1,12 +1,21 @@
+"use client";
+
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import CursorImage from "@/assets/images/cursor.png"
-import MessageImage from "@/assets/images/message.png"
+import CursorImage from "@/assets/images/cursor.png";
+import MessageImage from "@/assets/images/message.png";
 import Image from "next/image";
+import { easeInOut, motion } from "motion/react";
+import { useRef } from "react";
 
 export default function Hero() {
+  const constraintsRef = useRef(null);
+
   return (
     <section>
-      <div className="bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] py-20 relative overflow-hidden z-1">
+      <motion.div
+        ref={constraintsRef}
+        className="bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] py-20 relative overflow-hidden z-1"
+      >
         <div className="flex justify-center items-center">
           <a
             href="#"
@@ -24,8 +33,41 @@ export default function Hero() {
         <h1 className="text-8xl mt-10 tracking-tighter text-center font-extrabold mx-4">
           One Task <br /> at a Time
         </h1>
-        <Image src={CursorImage} alt="" className="hidden md:inline absolute rotate-z-10 top-58 left-40 lg:left-94 h-44 lg:h-48 w-auto"/>
-        <Image src={MessageImage} alt="" className="hidden md:inline absolute top-48 right-38 lg:right-88 h-44 lg:h-48 w-auto"/>
+        <motion.div
+          drag
+          dragSnapToOrigin
+          dragElastic={0.2}
+          dragConstraints={constraintsRef}
+          className="hidden md:inline absolute rotate-z-8 top-60 md:left-10 lg:left-94 h-44 lg:h-48 w-auto"
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut", 
+          }}
+        >
+          <Image src={CursorImage} alt="" draggable="false" />
+        </motion.div>
+        <motion.div
+          drag
+          dragSnapToOrigin
+          dragElastic={0.2}
+          dragConstraints={constraintsRef}
+          className="hidden md:inline absolute top-48 md:right-4 lg:right-88 h-44 lg:h-48 w-auto"
+          animate={{
+            y: [0, -20, 0], // Moves from 0 to -20px and back to 0
+          }}
+          transition={{
+            duration: 2, // Time for one full cycle
+            repeat: Infinity, // Repeat forever
+            ease: "easeInOut", // Smooth start and stop
+          }}
+        >
+          <Image src={MessageImage} alt="" draggable="false" />
+        </motion.div>
+
         <p className="text-md md:text-xl mt-10 lg:mt-16 text-center mx-18 text-white/70">
           Celebrate the joy of accomplishment with an app <br /> designed to
           track progress, motivate your efforts,
@@ -47,7 +89,7 @@ export default function Hero() {
              /* Desktop sizes */
              lg:w-[2500px] lg:h-[1200px] lg:top-[calc(100%-350px)] lg:translate-y-[16%]"
         ></div>
-      </div>
+      </motion.div>
     </section>
   );
 }
