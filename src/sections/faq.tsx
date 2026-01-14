@@ -36,10 +36,10 @@ export default function Faqs() {
 
   return (
     <section id="faqs">
-      <div className="flex flex-col items-center justify-center gap-16 py-28 lg:py-36 ">
-        <h2 className="text-4xl lg:text-5xl font-bold text-center text-white">
+      <div className="flex flex-col items-center justify-center gap-16 py-28 lg:py-36 dark:bg-black bg-white">
+        <h2 className="text-4xl lg:text-5xl font-bold text-center dark:text-white text-slate-900">
           Frequently asked <br />
-          <span className="text-purple-400 text-6xl">Questions</span>
+          <span className="dark:text-purple-400 text-blue-500 text-6xl">Questions</span>
         </h2>
         <div className="flex flex-col gap-4 w-7/8 text-gray-150 max-w-2xl">
           {items.map((item, idx) => {
@@ -50,16 +50,16 @@ export default function Faqs() {
               <motion.div
                 key={idx}
                 // layout
-                className="flex flex-col py-6 px-4 border border-purple-300/20 shadow-lg/60 rounded-4xl cursor-pointer bg-[#161616] overflow-hidden"
+                className="flex flex-col py-6 px-4 border dark:border-purple-300/20 border-slate-200 shadow-sm dark:shadow-lg/60 rounded-4xl cursor-pointer dark:bg-[#161616] bg-white overflow-hidden"
                 onClick={() => toggle(idx)} // Toggle when clicking the whole card
               >
                 <motion.h2
-                  className="flex px-4 justify-between text-base font-semibold"
+                  className="flex px-4 justify-between text-base font-semibold dark:text-white text-slate-800"
                   // layout="position"
                 >
                   {item.question}
                   <PlusIcon
-                    className={`size-5 text-purple-400 ${
+                    className={`size-5 dark:text-purple-400 text-blue-500 ${
                       isOpen ? "-rotate-45" : ""
                     } transition-all duration-300`}
                   />
@@ -87,7 +87,7 @@ export default function Faqs() {
                         // },
                       }}
                     >
-                      <p className="px-4 pt-4 text-gray-300 mt-4 text-sm tracking-tight">
+                      <p className="px-4 pt-4 dark:text-gray-300 text-slate-600 mt-4 text-sm tracking-tight">
                         {item.answer}
                       </p>
                     </motion.div>

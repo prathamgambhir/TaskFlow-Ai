@@ -30,13 +30,13 @@ export const FeatureCard: React.FC<FeatureCard> = ({ feature, index }) => {
   return (
     <div
       key={index}
-      className={`bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 text-center flex flex-col items-center relative ${
+      className={`bg-neutral-50 dark:bg-zinc-900/50 border border-neutral-200 dark:border-zinc-800 rounded-2xl p-8 text-center flex flex-col items-center relative ${
         feature.className || ""
       }`}
       ref={border}
     >
       <motion.div
-        className="absolute inset-0 border-2 border-purple-400 rounded-2xl"
+        className="absolute inset-0 border-2 dark:border-purple-400 border-blue-600 rounded-2xl"
         style={{
           WebkitMaskImage: maskImage,
           maskImage: maskImage

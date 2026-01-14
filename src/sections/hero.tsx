@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import CursorImage from "@/assets/images/cursor.png";
 import MessageImage from "@/assets/images/message.png";
 import Image from "next/image";
-import { easeInOut, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useRef } from "react";
 
 export default function Hero() {
@@ -14,23 +14,23 @@ export default function Hero() {
     <section>
       <motion.div
         ref={constraintsRef}
-        className="bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] py-20 relative overflow-hidden z-1"
+        className="dark:bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] bg-[linear-gradient(to_bottom,#ffffff,#ffffff_34%,#dbeafe_65%,#bfdbfe_82%)] py-20 relative overflow-hidden z-1"
       >
         <div className="flex justify-center items-center">
           <a
             href="#"
-            className="border border-white/30 p-2 rounded-lg flex items-center justify-center gap-4"
+            className="dark:border-white/30 border-slate-300 p-2 rounded-lg flex items-center justify-center gap-4"
           >
-            <span className="bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2,#2FD8FE)] text-transparent bg-clip-text">
+            <span className="dark:bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2,#2FD8FE)] bg-[linear-gradient(to_right,#3b82f6,#60a5fa,#93c5fd,#bfdbfe,#dbeafe)] text-transparent bg-clip-text font-semibold">
               Version 2.0 is here.
             </span>
-            <span className="inline-flex justify-center items-center gap-1">
+            <span className="dark:inline-flex inline-flex justify-center items-center gap-1 dark:text-white/70 text-slate-700 font-medium">
               Read More
               <ArrowRightIcon className="size-4 mt-0.5" />
             </span>
           </a>
         </div>
-        <h1 className="text-8xl mt-10 tracking-tighter text-center font-extrabold mx-4">
+        <h1 className="text-6xl md:text-8xl mt-10 tracking-tighter text-center font-extrabold mx-4 dark:text-white text-slate-900">
           One Task <br /> at a Time
         </h1>
         <motion.div
@@ -68,20 +68,20 @@ export default function Hero() {
           <Image src={MessageImage} alt="" draggable="false" />
         </motion.div>
 
-        <p className="text-md md:text-xl mt-10 lg:mt-16 text-center mx-18 text-white/70">
+        <p className="text-sm md:text-lg mt-10 lg:mt-16 text-center mx-18 dark:text-white/70 text-slate-700 font-medium opacity-80">
           Celebrate the joy of accomplishment with an app <br /> designed to
           track progress, motivate your efforts,
           <br /> and celebrate your successes.
         </p>
         <div className="flex justify-center items-center mb-10 md:mb-14 lg:mb-24">
-          <motion.button className="mt-12 h-10 bg-white/90 text-black font-normal border-gray-200 shadow-sm/40 rounded-2xl w-auto px-6 py-2" whileHover={{scale: 1.05}}>
+          <motion.button className="mt-12 h-10 bg-slate-900 text-white font-normal border border-slate-700 shadow-lg rounded-2xl w-auto px-6 py-2 hover:bg-slate-800 transition-colors" whileHover={{scale: 1.05}}>
             Get for free
           </motion.button>
         </div>
         <div
-          className="absolute left-1/2 -translate-x-1/2 rounded-[100%] border border-black/10 bg-black -z-10
-          bg-[radial-gradient(closest-side,#000_80%,#9560EB)] 
-             md:bg-[radial-gradient(closest-side,#000_95%,#9560EB)] 
+          className="absolute left-1/2 -translate-x-1/2 rounded-[100%] dark:border-black/10 border-blue-200/50 dark:bg-black bg-white -z-10
+          dark:bg-[radial-gradient(closest-side,#000_80%,#9560EB)] md:dark:bg-[radial-gradient(closest-side,#000_95%,#9560EB)]
+          bg-[radial-gradient(closest-side,#ffffff_80%,#bfdbfe)] md:bg-[radial-gradient(closest-side,#ffffff_95%,#93c5fd)]
              /* Mobile sizes */
              w-[160%] h-[300px] top-[calc(100%-100px)] 
              /* Tablet sizes */

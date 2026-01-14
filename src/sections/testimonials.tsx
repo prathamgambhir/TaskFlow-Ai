@@ -76,16 +76,16 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section className="py-28 p-6 lg:p-16">
+    <section className="py-28 p-6 lg:p-16 dark:bg-black bg-white">
       <div className="">
-        <div className="text-center text-sm font-medium flex flex-col gap-2 items-center text-white/80">
-          <span className="border border-purple-400/40 rounded-xl p-2 shadow-md">
+        <div className="text-center text-sm font-medium flex flex-col gap-2 items-center dark:text-white/80 text-neutral-700">
+          <span className="dark:border-purple-400 border-blue-300 rounded-xl p-2 shadow-md shadow-blue-300/50 border text-black dark:text-white">
             Testimonials
           </span>
-        <h2 className="font-bold text-4xl lg:text-5xl text-white text-center py-4">
+        <h2 className="font-bold text-4xl lg:text-5xl dark:text-white text-black text-center py-4">
           What our users say
         </h2>
-        <p className="text-center pt-6 text-base tracking-tighter max-w-md">
+        <p className="text-center pt-6 text-base tracking-tighter max-w-md dark:text-gray-400 text-slate-600">
           From intuitive design to powerful features, our app has become an
           essential tool for users around the world.
         </p>

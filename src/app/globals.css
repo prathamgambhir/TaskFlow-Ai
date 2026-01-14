@@ -79,6 +79,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Light theme gradient colors - blue shades */
+  --gradient-from: oklch(0.95 0 0);
+  --gradient-to: oklch(0.85 0 0);
+  --gradient-primary: oklch(0.6 0.1 210);
+  --gradient-secondary: oklch(0.5 0.15 220);
+  --gradient-accent: oklch(0.4 0.2 230);
 }
 
 .dark {

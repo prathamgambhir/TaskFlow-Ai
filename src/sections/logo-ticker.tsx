@@ -21,8 +21,8 @@ const images: { src: StaticImageData; alt: string }[] = [
 export default function LogoTicker() {
   return (
     <section>
-      <div className="bg-black text-white flex flex-col gap-12 md:gap-14 lg:gap-16 items-center py-10">
-        <h2 className="text-sm lg:text-base font-medium text-white/60">
+      <div className="dark:bg-black bg-white text-white dark:text-white text-slate-900 flex flex-col gap-12 md:gap-14 lg:gap-16 items-center py-10">
+        <h2 className="text-sm lg:text-base font-medium dark:text-white/60 text-slate-500">
           Trusted by the world's most innovative teams
         </h2>
         <div className="flex overflow-hidden w-full h-auto mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] ">
@@ -37,7 +37,7 @@ export default function LogoTicker() {
                 src={image.src}
                 alt={image.alt}
                 key={idx}
-                className="flex-none h-8 md:h-10 w-auto"
+                className="flex-none h-8 md:h-10 w-auto dark:invert invert-0"
               />
             ))}
           </motion.div>

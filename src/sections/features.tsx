@@ -35,13 +35,13 @@ const features: Feature[] = [
 
 export default function Features() {
   return (
-    <section className="bg-black text-white py-32 px-6" id="features">
+    <section className="dark:bg-black bg-white py-32 px-6" id="features">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white text-slate-900">
             Everything you need
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="dark:text-gray-400 text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Enjoy customizable lists, team work tools, and smart tracking all in
             one place. Set tasks, get reminders, and see your progress simply
             and quickly.

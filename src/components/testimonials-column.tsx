@@ -18,7 +18,7 @@ export default function TestimonialsColumn(props: {
           ({ name, imageSrc, text, username }, idx) => (
             <div
               key={idx}
-              className="max-w-xl border border-purple-400/20 bg-[#161616] shadow-purple-400 shadow-sm/50 rounded-2xl p-6 mb-8"
+              className="max-w-xl border border-blue-200 dark:border-purple-400/20 bg-white dark:bg-[#161616] dark:shadow-purple-400 dark:shadow-sm/40 shadow-sm rounded-2xl p-6 mb-8"
             >
               <div>{text}</div>
               <div className="flex gap-2 items-center pt-6 ">
@@ -33,7 +33,7 @@ export default function TestimonialsColumn(props: {
                   <div className="text-base/snug tracking-tight font-light ">
                     {name}
                   </div>
-                  <div className="text-sm tracking-tight font-light text-white/60 ">
+                  <div className="text-sm tracking-tight font-light dark:text-white/60 text-neutral-500">
                     {username}
                   </div>
                 </div>
