@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaS Landing Page
 
-## Getting Started
+A modern, responsive SaaS landing page built with Next.js, Tailwind CSS, and Framer Motion. This project was created to practice UI/UX design, animations, and modern frontend technologies.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Modern UI/UX Design** - Clean, both dark and light themed design with purple accents
+- **Smooth Animations** - Fluid animations using Framer Motion
+- **Responsive Layout** - Fully responsive for all screen sizes
+- **Multiple Sections**:
+  - Navbar with mobile menu
+  - Hero section with animated elements
+  - Logo ticker
+  - Features showcase
+  - Product showcase
+  - Testimonials
+  - FAQs
+  - Call to action
+  - Footer
+
+## Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Heroicons](https://heroicons.com/)
+- **Language**: TypeScript
+
+## Live 
+- Open [http://taskflowwai.vercel.app](http://localhost:3000) in your browser.
+  
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd saas-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+## Project Structure
+
+```
+saas-app/
+├── public/                 # Static assets
+├── src/
+│   ├── app/               # Next.js App Router pages
+│   │   ├── page.tsx       # Main landing page
+│   │   ├── layout.tsx     # Root layout
+│   │   └── globals.css    # Global styles
+│   ├── assets/            # Images and static files
+│   │   └── images/        # Image assets
+│   ├── components/        # Reusable components
+│   │   ├── button.tsx
+│   │   ├── feature-cards.tsx
+│   │   ├── testimonials-column.tsx
+│   │   └── Icons/         # Custom icon components
+│   └── sections/          # Page sections
+│       ├── navbar.tsx
+│       ├── hero.tsx
+│       ├── features.tsx
+│       ├── logo-ticker.tsx
+│       ├── product-showcase.tsx
+│       ├── testimonials.tsx
+│       ├── faq.tsx
+│       ├── calltoaction.tsx
+│       └── footer.tsx
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+This is a practice project, but feel free to:
+- Fork the repository
+- Create a feature branch
+- Submit pull requests
+- Report issues
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is open source and available under the MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
