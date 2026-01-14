@@ -8,6 +8,7 @@ import EchoLogo from "@/assets/images/echo.png";
 import PulseLogo from "@/assets/images/pulse.png";
 import Image, { StaticImageData } from "next/image";
 import { easeInOut, motion } from "motion/react";
+import { fadeInVariants } from "@/components/stagger-animations";
 
 const images: { src: StaticImageData; alt: string }[] = [
   { src: AcmeLogo, alt: "Acme Logo" },
@@ -21,10 +22,19 @@ const images: { src: StaticImageData; alt: string }[] = [
 export default function LogoTicker() {
   return (
     <section>
-      <div className="dark:bg-black bg-white text-white dark:text-white text-slate-900 flex flex-col gap-12 md:gap-14 lg:gap-16 items-center py-10">
-        <h2 className="text-sm lg:text-base font-medium dark:text-white/60 text-slate-500">
+      <motion.div
+        variants={fadeInVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="dark:bg-black bg-white text-white dark:text-white text-slate-900 flex flex-col gap-12 md:gap-14 lg:gap-16 items-center py-10"
+      >
+        <motion.h2
+          variants={fadeInVariants}
+          className="text-sm lg:text-base font-medium dark:text-white/60 text-slate-500"
+        >
           Trusted by the world's most innovative teams
-        </h2>
+        </motion.h2>
         <div className="flex overflow-hidden w-full h-auto mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] ">
           <motion.div
             className="flex flex-none gap-16 md:gap-20 lg:gap-24 pr-16 md:pr-20 lg:pr-24"
@@ -42,7 +52,7 @@ export default function LogoTicker() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

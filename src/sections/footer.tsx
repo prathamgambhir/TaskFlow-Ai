@@ -1,12 +1,22 @@
+"use client";
+
 import { GithubIcon } from "@/components/Icons/github";
 import { LinkedInIcon } from "@/components/Icons/linkedin";
 import { TwitterIcon } from "@/components/Icons/twitter";
 import { HeartIcon } from "@heroicons/react/20/solid";
+import { motion } from "motion/react";
+import { fadeInVariants } from "@/components/stagger-animations";
 
 export default function Footer() {
   return (
     <footer className="dark:bg-black bg-white dark:text-white text-slate-900 py-12 border-t mt-28 dark:border-zinc-800 border-slate-200">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+      <motion.div
+        variants={fadeInVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
+      >
         <div className="text-center md:text-left">
           <p className="dark:text-gray-400 text-slate-500 text-sm mb-2">
             © 2025 All rights reserved.
@@ -45,7 +55,7 @@ export default function Footer() {
             <GithubIcon />
           </a>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

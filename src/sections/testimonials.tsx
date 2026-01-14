@@ -10,8 +10,11 @@ import Avatar7 from "@/assets/images/avatar-7.png";
 import Avatar8 from "@/assets/images/avatar-8.png";
 import Avatar9 from "@/assets/images/avatar-9.png";
 import TestimonialsColumn from "@/components/testimonials-column";
-import {motion} from "motion/react"
-
+import { motion } from "motion/react";
+import {
+  containerVariants,
+  itemVariants,
+} from "@/components/stagger-animations";
 
 export const testimonials = [
   {
@@ -67,7 +70,7 @@ export const testimonials = [
     imageSrc: Avatar9,
     name: "Linda Wu",
     username: "@lindawu_creates",
-  }
+  },
 ];
 
 const firstColumn = testimonials.slice(0, 3);
@@ -77,26 +80,45 @@ const thirdColumn = testimonials.slice(6, 9);
 export default function Testimonials() {
   return (
     <section className="py-28 p-6 lg:p-16 dark:bg-black bg-white">
-      <div className="">
-        <div className="text-center text-sm font-medium flex flex-col gap-2 items-center dark:text-white/80 text-neutral-700">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        <motion.div
+          variants={itemVariants}
+          className="text-center text-sm font-medium flex flex-col gap-2 items-center dark:text-white/80 text-neutral-700"
+        >
           <span className="dark:border-purple-400 border-blue-300 rounded-xl p-2 shadow-md shadow-blue-300/50 border text-black dark:text-white">
             Testimonials
           </span>
-        <h2 className="font-bold text-4xl lg:text-5xl dark:text-white text-black text-center py-4">
-          What our users say
-        </h2>
-        <p className="text-center pt-6 text-base tracking-tighter max-w-md dark:text-gray-400 text-slate-600">
-          From intuitive design to powerful features, our app has become an
-          essential tool for users around the world.
-        </p>
-        </div>
+          <h2 className="font-bold text-4xl lg:text-5xl dark:text-white text-black text-center py-4">
+            What our users say
+          </h2>
+          <p className="text-center pt-6 text-base tracking-tighter max-w-md dark:text-gray-400 text-slate-600">
+            From intuitive design to powerful features, our app has become an
+            essential tool for users around the world.
+          </p>
+        </motion.div>
 
-        <div className="flex justify-center gap-8 mt-10 mask-[linear-gradient(to_bottom,transparent,black_30%,black_60%,transparent)] max-h-168 overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={6 }/>
-          <TestimonialsColumn testimonials={secondColumn} classname="hidden md:block" duration={12}/>
-          <TestimonialsColumn testimonials={thirdColumn} classname="hidden lg:block" duration={6}/>
-        </div>
-      </div>
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center gap-8 mt-10 mask-[linear-gradient(to_bottom,transparent,black_30%,black_60%,transparent)] max-h-168 overflow-hidden"
+        >
+          <TestimonialsColumn testimonials={firstColumn} duration={6} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            classname="hidden md:block"
+            duration={12}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            classname="hidden lg:block"
+            duration={6}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

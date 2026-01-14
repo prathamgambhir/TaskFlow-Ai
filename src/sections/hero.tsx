@@ -6,6 +6,11 @@ import MessageImage from "@/assets/images/message.png";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useRef } from "react";
+import {
+  containerVariants,
+  itemVariants,
+  scaleFadeInVariants,
+} from "@/components/stagger-animations";
 
 export default function Hero() {
   const constraintsRef = useRef(null);
@@ -14,9 +19,16 @@ export default function Hero() {
     <section>
       <motion.div
         ref={constraintsRef}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
         className="dark:bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] bg-[linear-gradient(to_bottom,#ffffff,#ffffff_34%,#dbeafe_65%,#bfdbfe_82%)] py-20 relative overflow-hidden z-1"
       >
-        <div className="flex justify-center items-center">
+        <motion.div
+          variants={scaleFadeInVariants}
+          className="flex justify-center items-center"
+        >
           <a
             href="#"
             className="dark:border-white/30 border-slate-300 p-2 rounded-lg flex items-center justify-center gap-4"
@@ -29,23 +41,27 @@ export default function Hero() {
               <ArrowRightIcon className="size-4 mt-0.5" />
             </span>
           </a>
-        </div>
-        <h1 className="text-6xl md:text-8xl mt-10 tracking-tighter text-center font-extrabold mx-4 dark:text-white text-slate-900">
+        </motion.div>
+        <motion.h1
+          variants={itemVariants}
+          className="text-6xl md:text-8xl mt-10 tracking-tighter text-center font-extrabold mx-4 dark:text-white text-slate-900"
+        >
           One Task <br /> at a Time
-        </h1>
+        </motion.h1>
         <motion.div
           drag
           dragSnapToOrigin
           dragElastic={0.2}
           dragConstraints={constraintsRef}
+          variants={itemVariants}
           className="hidden md:inline absolute rotate-z-8 top-60 md:left-10 lg:left-94 h-44 lg:h-48 w-auto"
           animate={{
             y: [0, -20, 0],
           }}
           transition={{
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut", 
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         >
           <Image src={CursorImage} alt="" draggable="false" />
@@ -55,40 +71,48 @@ export default function Hero() {
           dragSnapToOrigin
           dragElastic={0.2}
           dragConstraints={constraintsRef}
+          variants={itemVariants}
           className="hidden md:inline absolute top-48 md:right-4 lg:right-88 h-44 lg:h-48 w-auto"
           animate={{
-            y: [0, -20, 0], // Moves from 0 to -20px and back to 0
+            y: [0, -20, 0],
           }}
           transition={{
-            duration: 2, // Time for one full cycle
-            repeat: Infinity, // Repeat forever
-            ease: "easeInOut", // Smooth start and stop
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         >
           <Image src={MessageImage} alt="" draggable="false" />
         </motion.div>
 
-        <p className="text-sm md:text-lg mt-10 lg:mt-16 text-center mx-18 dark:text-white/70 text-slate-700 font-medium opacity-80">
+        <motion.p
+          variants={itemVariants}
+          className="text-sm md:text-lg mt-10 lg:mt-16 text-center mx-18 dark:text-white/70 text-slate-700 font-medium opacity-80"
+        >
           Celebrate the joy of accomplishment with an app <br /> designed to
           track progress, motivate your efforts,
           <br /> and celebrate your successes.
-        </p>
-        <div className="flex justify-center items-center mb-10 md:mb-14 lg:mb-24">
-          <motion.button className="mt-12 h-10 bg-slate-900 text-white font-normal border border-slate-700 shadow-lg rounded-2xl w-auto px-6 py-2 hover:bg-slate-800 transition-colors" whileHover={{scale: 1.05}}>
+        </motion.p>
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center items-center mb-10 md:mb-14 lg:mb-24"
+        >
+          <motion.button
+            className="mt-12 h-10 bg-slate-900 text-white font-normal border border-slate-700 shadow-lg rounded-2xl w-auto px-6 py-2 hover:bg-slate-800 transition-colors"
+            whileHover={{ scale: 1.05 }}
+          >
             Get for free
           </motion.button>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          variants={scaleFadeInVariants}
           className="absolute left-1/2 -translate-x-1/2 rounded-[100%] dark:border-black/10 border-blue-200/50 dark:bg-black bg-white -z-10
           dark:bg-[radial-gradient(closest-side,#000_80%,#9560EB)] md:dark:bg-[radial-gradient(closest-side,#000_95%,#9560EB)]
           bg-[radial-gradient(closest-side,#ffffff_80%,#bfdbfe)] md:bg-[radial-gradient(closest-side,#ffffff_95%,#93c5fd)]
-             /* Mobile sizes */
              w-[160%] h-[300px] top-[calc(100%-100px)] 
-             /* Tablet sizes */
              md:w-[150%] md:h-[500px] md:top-[calc(100%-200px)] md:translate-y-[15%]
-             /* Desktop sizes */
              lg:w-[2500px] lg:h-[1200px] lg:top-[calc(100%-350px)] lg:translate-y-[16%]"
-        ></div>
+        ></motion.div>
       </motion.div>
     </section>
   );

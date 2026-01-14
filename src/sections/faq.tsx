@@ -3,6 +3,10 @@
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import {
+  containerVariants,
+  itemVariants,
+} from "@/components/stagger-animations";
 
 const items = [
   {
@@ -37,25 +41,41 @@ export default function Faqs() {
   return (
     <section id="faqs">
       <div className="flex flex-col items-center justify-center gap-16 py-28 lg:py-36 dark:bg-black bg-white">
-        <h2 className="text-4xl lg:text-5xl font-bold text-center dark:text-white text-slate-900">
-          Frequently asked <br />
-          <span className="dark:text-purple-400 text-blue-500 text-6xl">Questions</span>
-        </h2>
-        <div className="flex flex-col gap-4 w-7/8 text-gray-150 max-w-2xl">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl lg:text-5xl font-bold text-center dark:text-white text-slate-900"
+          >
+            Frequently asked <br />
+            <span className="dark:text-purple-400 text-blue-500 text-6xl">
+              Questions
+            </span>
+          </motion.h2>
+        </motion.div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col gap-4 w-7/8 text-gray-150 max-w-2xl"
+        >
           {items.map((item, idx) => {
-            //Check if this specific item is the open one
             const isOpen = openIndex === idx;
 
             return (
               <motion.div
                 key={idx}
-                // layout
+                variants={itemVariants}
                 className="flex flex-col py-6 px-4 border dark:border-purple-300/20 border-slate-200 shadow-sm dark:shadow-lg/60 rounded-4xl cursor-pointer dark:bg-[#161616] bg-white overflow-hidden"
-                onClick={() => toggle(idx)} // Toggle when clicking the whole card
+                onClick={() => toggle(idx)}
               >
                 <motion.h2
                   className="flex px-4 justify-between text-base font-semibold dark:text-white text-slate-800"
-                  // layout="position"
                 >
                   {item.question}
                   <PlusIcon
@@ -73,18 +93,11 @@ export default function Faqs() {
                         height: "auto",
                         opacity: 1,
                         transition: { duration: 0.3 },
-                        //   height: { duration: 0.4 },
-                        //   opacity: { duration: 0.25, delay: 0.1 },
-                        // },
                       }}
                       exit={{
                         height: 0,
                         opacity: 0,
                         transition: { duration: 0.3 },
-                        // transition: {
-                        //   height: { duration: 0.4 },
-                        //   opacity: { duration: 0.2 },
-                        // },
                       }}
                     >
                       <p className="px-4 pt-4 dark:text-gray-300 text-slate-600 mt-4 text-sm tracking-tight">
@@ -96,7 +109,7 @@ export default function Faqs() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
